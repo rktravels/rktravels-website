@@ -1,0 +1,497 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap');
+
+.footer {
+    width: 100%;
+    background-color: #fffaf5;
+    /* Warm light cream background */
+    color: #334155;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-top: 1px solid #fee3cd;
+}
+
+/* ==========================================================================
+   1. VALUE ASSURANCE TOP RIBBON
+   ========================================================================== */
+.ribbonWrapper {
+    border-bottom: 1px solid #fed7aa;
+    background-color: #fff4ea;
+    padding: 1.35rem 0;
+}
+
+.ribbonContainer {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.ribbonItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ribbonIconBadge {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #ffebd8;
+    color: #f26522;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.ribbonItem strong {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #0e1e2d;
+    margin-bottom: 2px;
+}
+
+.ribbonItem span {
+    display: block;
+    font-size: 0.74rem;
+    color: #64748b;
+}
+
+.ribbonDivider {
+    width: 1px;
+    height: 38px;
+    background-color: #fed7aa;
+}
+
+/* ==========================================================================
+   2. MAIN FOOTER CONTENT GRID
+   ========================================================================== */
+.mainFooterContainer {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 2.5rem 1.5rem;
+    box-sizing: border-box;
+}
+
+.footerGrid {
+    display: grid;
+    grid-template-columns: 1.35fr 0.8fr 1.05fr 1fr;
+    gap: 2.75rem;
+}
+
+/* Column 1: Brand */
+.brandCol {
+    display: flex;
+    flex-direction: column;
+}
+
+.logoLink {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    text-decoration: none;
+}
+
+.logoImageWrap {
+    position: relative;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.logoImage {
+    object-fit: contain;
+    width: auto;
+    height: 60px;
+}
+
+.brandBio {
+    font-size: 0.82rem;
+    color: #64748b;
+    line-height: 1.65;
+    margin: 0 0 1.5rem 0;
+    max-width: 320px;
+}
+
+.supportBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #ffffff;
+    border: 1px solid #fed7aa;
+    padding: 8px 14px;
+    border-radius: 9999px;
+    font-size: 0.76rem;
+    color: #334155;
+    width: fit-content;
+    box-shadow: 0 2px 6px rgba(242, 101, 34, 0.05);
+}
+
+.supportBadge strong {
+    color: #16a34a;
+}
+
+.badgePulseDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+}
+
+/* Headers */
+.colHeader {
+    margin-bottom: 1.35rem;
+}
+
+.colTitle {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0e1e2d;
+    margin: 0;
+    letter-spacing: -0.015em;
+}
+
+.colUnderline {
+    display: block;
+    width: 26px;
+    height: 2.5px;
+    background-color: #f26522;
+    border-radius: 2px;
+    margin-top: 6px;
+}
+
+/* Column 2: Links */
+.linksList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footerLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.linkArrow {
+    color: #f26522;
+    transition: transform 0.2s ease;
+}
+
+.footerLink:hover {
+    color: #f26522;
+    transform: translateX(3px);
+}
+
+.footerLink:hover .linkArrow {
+    transform: translateX(2px);
+}
+
+/* Column 3: Popular Routes */
+.routesList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.routeItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+.routeDot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #f26522;
+    flex-shrink: 0;
+}
+
+/* Column 4: Contact */
+.contactList {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.contactItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.contactIcon {
+    color: #f26522;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.contactItem strong {
+    display: block;
+    font-size: 0.78rem;
+    color: #0e1e2d;
+    margin-bottom: 2px;
+}
+
+.contactItem a,
+.contactItem span {
+    font-size: 0.80rem;
+    color: #64748b;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+}
+
+.contactItem a:hover {
+    color: #f26522;
+}
+
+/* ==========================================================================
+   3. BOTTOM LEGAL BAR
+   ========================================================================== */
+.bottomBarWrapper {
+    border-top: 1px solid #fed7aa;
+    padding: 1.25rem 0;
+    background-color: #fff0e2;
+}
+
+.bottomBarContainer {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.copyrightText {
+    font-size: 0.78rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.copyrightText strong {
+    color: #0e1e2d;
+}
+
+.legalLinks {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legalLinks a {
+    font-size: 0.76rem;
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.legalLinks a:hover {
+    color: #f26522;
+}
+
+.legalDot {
+    color: #cbd5e1;
+    font-size: 0.75rem;
+}
+
+.craftedText {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.76rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.heartIcon {
+    color: #f26522;
+    fill: #f26522;
+}
+
+/* ==========================================================================
+   TABLET RESPONSIVENESS (768px - 1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .ribbonContainer {
+        flex-wrap: wrap;
+        gap: 1.25rem;
+        justify-content: flex-start;
+    }
+
+    .ribbonDivider {
+        display: none;
+    }
+
+    .footerGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.25rem;
+    }
+
+    .bottomBarContainer {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS (320px - 425px)
+   ========================================================================== */
+@media (max-width: 480px) {
+    .ribbonWrapper {
+        padding: 1rem 0;
+    }
+
+    .ribbonContainer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.85rem;
+        padding: 0 0.85rem;
+    }
+
+    .ribbonDivider {
+        display: none;
+    }
+
+    .ribbonItem {
+        gap: 10px;
+    }
+
+    .ribbonIconBadge {
+        width: 34px;
+        height: 34px;
+    }
+
+    .ribbonIconBadge svg {
+        width: 17px;
+        height: 17px;
+    }
+
+    .ribbonItem strong {
+        font-size: 0.78rem;
+    }
+
+    .ribbonItem span {
+        font-size: 0.68rem;
+    }
+
+    .mainFooterContainer {
+        padding: 2.25rem 0.85rem 1.75rem 0.85rem;
+    }
+
+    .footerGrid {
+        grid-template-columns: 1fr;
+        gap: 1.85rem;
+    }
+
+    .logoImageWrap,
+    .logoImage {
+        height: 48px;
+    }
+
+    .brandBio {
+        font-size: 0.76rem;
+        margin-bottom: 1.15rem;
+    }
+
+    .colHeader {
+        margin-bottom: 0.85rem;
+    }
+
+    .colTitle {
+        font-size: 0.95rem;
+    }
+
+    .footerLink,
+    .routeItem {
+        font-size: 0.76rem;
+    }
+
+    .contactItem strong {
+        font-size: 0.74rem;
+    }
+
+    .contactItem a,
+    .contactItem span {
+        font-size: 0.74rem;
+    }
+
+    .bottomBarWrapper {
+        padding: 1rem 0;
+    }
+
+    .bottomBarContainer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.65rem;
+        padding: 0 0.85rem;
+    }
+
+    .copyrightText {
+        font-size: 0.72rem;
+    }
+
+    .legalLinks {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .legalLinks a {
+        font-size: 0.7rem;
+    }
+
+    .craftedText {
+        font-size: 0.7rem;
+    }
+}
+
+/* Micro screens (< 350px) */
+@media (max-width: 350px) {
+
+    .logoImageWrap,
+    .logoImage {
+        height: 42px;
+    }
+
+    .ribbonItem strong {
+        font-size: 0.74rem;
+    }
+
+    .ribbonItem span {
+        font-size: 0.64rem;
+    }
+
+    .brandBio {
+        font-size: 0.72rem;
+    }
+}
+
+.logoImage {
+    object-fit: contain;
+    width: auto !important;
+    height: 60px;
+}

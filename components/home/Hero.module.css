@@ -1,0 +1,571 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap');
+
+/* ==========================================================================
+   DESKTOP STYLES (STRICTLY UNCHANGED)
+   ========================================================================== */
+.heroSection {
+    position: relative;
+    width: 100%;
+    height: 640px;
+    min-height: 640px;
+    overflow: hidden;
+    padding: 1.25rem 2.25rem 1.85rem 2.25rem;
+    display: flex;
+    align-items: flex-end;
+    box-sizing: border-box;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+}
+
+.bgWrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.bgImg {
+    object-fit: cover;
+    object-position: center 115% !important;
+}
+
+.leftGradientFade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0.72) 0%,
+            rgba(255, 255, 255, 0.58) 25%,
+            rgba(255, 255, 255, 0.28) 42%,
+            rgba(255, 255, 255, 0.08) 54%,
+            rgba(255, 255, 255, 0) 65%);
+}
+
+.contentContainer {
+    position: relative;
+    z-index: 2;
+    max-width: 1320px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 2.5rem;
+    align-items: end;
+}
+
+.leftCol {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.mobileEyebrow {
+    display: none;
+}
+
+.heroTitleWrap {
+    margin-bottom: 1.35rem;
+}
+
+.heroTitle {
+    font-size: clamp(2.6rem, 4.6vw, 3.9rem);
+    font-weight: 800;
+    color: #0e1e2d;
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+    margin: 0 0 0.85rem 0;
+}
+
+.highlightWord {
+    color: #f26522;
+    display: inline-block;
+}
+
+.heroSub {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0;
+    font-weight: 500;
+}
+
+.rightCol {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.uspStrip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 620px;
+    background: rgba(10, 16, 26, 0.76);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 0.95rem 1.75rem;
+    border-radius: 14px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+    box-sizing: border-box;
+    margin-bottom: 0;
+}
+
+.uspItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.uspIcon {
+    color: #f59e0b;
+    flex-shrink: 0;
+}
+
+.uspDivider {
+    width: 1px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.uspText {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.uspText strong {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+}
+
+.uspText span {
+    font-size: 0.72rem;
+    color: #cbd5e1;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.mobileUspGrid {
+    display: none;
+}
+
+/* ==========================================================================
+   TABLET ADAPTATION (768px - 1040px)
+   ========================================================================== */
+@media (max-width: 1040px) {
+    .heroSection {
+        height: auto;
+        min-height: auto;
+        padding: 2rem 1.25rem;
+    }
+
+    .contentContainer {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: stretch;
+    }
+
+    .rightCol {
+        align-items: flex-start;
+    }
+
+    .uspStrip {
+        max-width: 100%;
+        padding: 1rem 1.25rem;
+    }
+}
+
+/* ==========================================================================
+   MOBILE VIEW (max-width: 480px) - ACCURATELY SCALED & SINGLE-LINE
+   ========================================================================== */
+@media (max-width: 480px) {
+    .heroSection {
+        height: auto;
+        min-height: auto;
+        padding: 1.25rem 0.5rem 1.5rem 0.5rem;
+        align-items: flex-start;
+        background: #fbfbfc;
+        position: relative;
+    }
+
+    .bgWrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 310px;
+        width: 100%;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+    .bgImg {
+        object-fit: cover !important;
+        object-position: 88% 45% !important;
+        transform: none !important;
+    }
+
+    .leftGradientFade {
+        display: block !important;
+        background: linear-gradient(180deg,
+                rgba(255, 255, 255, 0.88) 0%,
+                rgba(255, 255, 255, 0.65) 24%,
+                rgba(255, 255, 255, 0.2) 48%,
+                rgba(255, 255, 255, 0) 70%) !important;
+    }
+
+    .contentContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        position: relative;
+        z-index: 2;
+    }
+
+    .leftCol {
+        width: 100%;
+    }
+
+    .mobileEyebrow {
+        display: block;
+        font-size: 0.64rem;
+        font-weight: 700;
+        color: #475569;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 0.35rem;
+    }
+
+    .heroTitleWrap {
+        margin-bottom: 5.6rem;
+        padding-left: 0.15rem;
+    }
+
+    .heroTitle {
+        font-size: 2.25rem;
+        font-weight: 800;
+        line-height: 1.05;
+        letter-spacing: -0.035em;
+        margin-bottom: 0.45rem;
+        color: #0e1e2d;
+    }
+
+    .highlightWord {
+        color: #f26522;
+    }
+
+    .heroSub {
+        font-size: 0.8rem;
+        color: #334155;
+        line-height: 1.45;
+        max-width: 275px;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    .rightCol {
+        display: none;
+    }
+
+    /* 4-Column USP Container */
+    .mobileUspGrid {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        margin-top: 1.25rem;
+        padding: 0 2px;
+        box-sizing: border-box;
+    }
+
+    .mobileUspItem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        flex: 1 1 25%;
+        max-width: 25%;
+        padding: 0 1px;
+        box-sizing: border-box;
+    }
+
+    .mobileUspIconBadge {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: #ffebd8;
+        color: #f26522;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 6px;
+        flex-shrink: 0;
+    }
+
+    /* Forced Single-Line Heading */
+    .mobileUspItem strong,
+    .mobileUspTitle {
+        font-size: clamp(0.52rem, 2.2vw, 0.62rem);
+        font-weight: 700;
+        color: #0e1e2d;
+        line-height: 1.1;
+        margin-bottom: 2px;
+        white-space: nowrap;
+        letter-spacing: -0.02em;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Forced Single-Line Subtitle */
+    .mobileUspItem span,
+    .mobileUspDesc {
+        font-size: clamp(0.42rem, 1.8vw, 0.50rem);
+        color: #64748b;
+        line-height: 1.1;
+        white-space: nowrap;
+        letter-spacing: -0.015em;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Micro screens (width <= 340px) */
+@media (max-width: 340px) {
+    .mobileUspIconBadge {
+        width: 30px;
+        height: 30px;
+    }
+
+    .mobileUspItem strong,
+    .mobileUspTitle {
+        font-size: 0.48rem;
+    }
+
+    .mobileUspItem span,
+    .mobileUspDesc {
+        font-size: 0.39rem;
+    }
+}
+
+/* ==========================================================================
+   MOBILE VIEW (320px to 425px) - EXACT MATCH FOR 4-COLUMN HORIZONTAL ROW
+   ========================================================================== */
+@media (max-width: 480px) {
+    .heroSection {
+        height: auto;
+        min-height: auto;
+        padding: 1.25rem 0.5rem 1.75rem 0.5rem;
+        align-items: flex-start;
+        background: #fbfbfc;
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    .bgWrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 310px;
+        width: 100%;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+    .bgImg {
+        object-fit: cover !important;
+        object-position: 88% 45% !important;
+        transform: none !important;
+    }
+
+    .leftGradientFade {
+        display: block !important;
+        background: linear-gradient(180deg,
+                rgba(255, 255, 255, 0.88) 0%,
+                rgba(255, 255, 255, 0.65) 24%,
+                rgba(255, 255, 255, 0.2) 48%,
+                rgba(255, 255, 255, 0) 70%) !important;
+    }
+
+    .contentContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        position: relative;
+        z-index: 2;
+    }
+
+    .leftCol {
+        width: 100%;
+    }
+
+    .mobileEyebrow {
+        display: block;
+        font-size: 0.64rem;
+        font-weight: 700;
+        color: #475569;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 0.35rem;
+    }
+
+    .heroTitleWrap {
+        margin-bottom: 5.6rem;
+        padding-left: 0.15rem;
+    }
+
+    .heroTitle {
+        font-size: 2.25rem;
+        font-weight: 800;
+        line-height: 1.05;
+        letter-spacing: -0.035em;
+        margin-bottom: 0.45rem;
+        color: #0e1e2d;
+    }
+
+    .highlightWord {
+        color: #f26522;
+    }
+
+    .heroSub {
+        font-size: 0.8rem;
+        color: #334155;
+        line-height: 1.45;
+        max-width: 275px;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    /* Desktop pill hidden on mobile */
+    .rightCol {
+        display: none;
+    }
+
+    /* Exact 4-item horizontal line matching the screenshot */
+    .mobileUspGrid {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-top: 1.5rem;
+        padding: 0 2px;
+        box-sizing: border-box;
+    }
+
+    .mobileUspItem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        flex: 1 1 25%;
+        max-width: 25%;
+        padding: 0 1px;
+        box-sizing: border-box;
+    }
+
+    /* Circular peach badge */
+    .mobileUspIconBadge {
+        width: clamp(32px, 9vw, 42px);
+        height: clamp(32px, 9vw, 42px);
+        border-radius: 50%;
+        background: #ffebd8;
+        color: #f26522;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 7px;
+        flex-shrink: 0;
+    }
+
+    /* Title: strict single line */
+    .mobileUspItem strong,
+    .mobileUspTitle {
+        font-size: clamp(0.50rem, 2.15vw, 0.64rem);
+        font-weight: 700;
+        color: #0e1e2d;
+        line-height: 1.15;
+        margin-bottom: 2px;
+        white-space: nowrap;
+        letter-spacing: -0.025em;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Subtitle: strict single line */
+    .mobileUspItem span,
+    .mobileUspDesc {
+        font-size: clamp(0.40rem, 1.75vw, 0.52rem);
+        color: #64748b;
+        line-height: 1.15;
+        white-space: nowrap;
+        letter-spacing: -0.02em;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Exact 4-item horizontal line spaced evenly */
+    .mobileUspGrid {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: space-evenly !important;
+        align-items: flex-start;
+        width: 100%;
+        margin-top: 1.5rem;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .mobileUspItem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        flex: 0 1 auto;
+        padding: 0 2px;
+        box-sizing: border-box;
+    }
+}
+
+/* Micro screens (320px to 350px) */
+@media (max-width: 350px) {
+    .heroSection {
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+    }
+
+    .mobileUspIconBadge {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 5px;
+    }
+
+    .mobileUspItem strong,
+    .mobileUspTitle {
+        font-size: 0.48rem;
+        letter-spacing: -0.035em;
+    }
+
+    .mobileUspItem span,
+    .mobileUspDesc {
+        font-size: 0.38rem;
+        letter-spacing: -0.025em;
+    }
+
+}

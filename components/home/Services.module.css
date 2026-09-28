@@ -1,0 +1,323 @@
+/* ==========================================================================
+   DESKTOP STYLES (MATCHES DESKTOP REFERENCE)
+   ========================================================================== */
+.servicesSection {
+    max-width: 1320px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+}
+
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.titleWrapper {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.sectionTitle {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.025em;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.titleUnderline {
+    width: 32px;
+    height: 3px;
+    background-color: #f26522;
+    border-radius: 9999px;
+    margin-top: 6px;
+}
+
+.viewAllLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #f26522;
+    text-decoration: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.viewAllLink:hover {
+    opacity: 0.85;
+    transform: translateX(2px);
+}
+
+.viewAllArrow {
+    stroke-width: 2.5;
+}
+
+.servicesGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    width: 100%;
+}
+
+.serviceBox {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #edf2f7;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.serviceBox:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    border-color: #e2e8f0;
+}
+
+.cardLink {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: inherit;
+}
+
+.serviceThumbWrap {
+    position: relative;
+    width: 100%;
+    height: 155px;
+    overflow: hidden;
+    background-color: #f1f5f9;
+}
+
+.serviceImg {
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.serviceBox:hover .serviceImg {
+    transform: scale(1.04);
+}
+
+.serviceInfoRow {
+    padding: 1.1rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #ffffff;
+}
+
+.serviceIconPill {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #ff6600;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.serviceText {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.serviceTitle {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.25;
+    margin: 0 0 3px 0;
+    letter-spacing: -0.015em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.serviceDesc {
+    font-size: 0.58rem;
+    line-height: 1.2;
+    color: #64748b;
+    height: 2.4em;
+    max-height: 2.4em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.arrowCTA {
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding-left: 2px;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.serviceBox:hover .arrowCTA {
+    color: #f26522;
+    transform: translateX(3px);
+}
+
+/* ==========================================================================
+   TABLET VIEW (769px - 1040px)
+   ========================================================================== */
+@media (max-width: 1040px) and (min-width: 481px) {
+    .servicesGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+}
+
+/* ==========================================================================
+   MOBILE VIEW (320px to 480px) - EXACT MATCH FOR 2-COLUMN SCREENSHOT
+   ========================================================================== */
+@media (max-width: 480px) {
+    .servicesSection {
+        margin: 1.75rem auto 2.25rem auto;
+        padding: 0 0.75rem;
+    }
+
+    .sectionHeader {
+        margin-bottom: 1rem;
+        padding: 0 0.15rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.25rem;
+        font-weight: 800;
+    }
+
+    .titleUnderline {
+        width: 24px;
+        height: 3px;
+        margin-top: 4px;
+    }
+
+    .viewAllLink {
+        font-size: 0.76rem;
+        font-weight: 700;
+    }
+
+    /* 2-Column Grid on Mobile */
+    .servicesGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .serviceBox {
+        border-radius: 12px;
+        border: 1px solid #f1f5f9;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .serviceThumbWrap {
+        height: 96px;
+    }
+
+    .serviceInfoRow {
+        padding: 0.65rem 0.5rem;
+        gap: 6px;
+        align-items: center;
+    }
+
+    /* Filled orange round badge */
+    .serviceIconPill {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        background: #ff6600;
+        color: #ffffff;
+    }
+
+    .serviceIconPill svg {
+        width: 15px;
+        height: 15px;
+    }
+
+    .serviceTitle {
+        font-size: 0.72rem;
+        font-weight: 700;
+        margin: 0 0 1px 0;
+        line-height: 1.15;
+    }
+
+    .serviceDesc {
+        font-size: 0.58rem;
+        line-height: 1.2;
+        color: #64748b;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .arrowCTA {
+        display: flex;
+        align-items: center;
+        color: #0f172a;
+        padding-left: 0;
+    }
+
+    .arrowCTA svg {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+/* Micro devices (< 360px) */
+@media (max-width: 360px) {
+    .servicesSection {
+        padding: 0 0.5rem;
+    }
+
+    .servicesGrid {
+        gap: 6px;
+    }
+
+    .serviceThumbWrap {
+        height: 85px;
+    }
+
+    .serviceInfoRow {
+        padding: 0.5rem 0.35rem;
+        gap: 4px;
+    }
+
+    .serviceIconPill {
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+    }
+
+    .serviceIconPill svg {
+        width: 13px;
+        height: 13px;
+    }
+
+    .serviceTitle {
+        font-size: 0.66rem;
+    }
+
+    .serviceDesc {
+        font-size: 0.52rem;
+    }
+
+    .arrowCTA svg {
+        width: 11px;
+        height: 11px;
+    }
+}

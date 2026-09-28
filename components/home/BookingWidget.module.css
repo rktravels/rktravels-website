@@ -1,0 +1,718 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap');
+
+/* =========================================================
+   DESKTOP STYLES (STRICTLY UNCHANGED)
+   ========================================================= */
+.widgetBox {
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 16px 45px rgba(15, 23, 42, 0.08), 0 2px 10px rgba(15, 23, 42, 0.04);
+    border: 1px solid #f1f5f9;
+    overflow: hidden;
+    max-width: 630px;
+    width: 100%;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+}
+
+/* 1. Category Tabs */
+.typeBar {
+    display: flex;
+    align-items: stretch;
+    background: #f8fafc;
+    border-bottom: 1px solid #eef2f6;
+    position: relative;
+}
+
+.typeBtn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 12px;
+    background: transparent;
+    border: none;
+    border-right: 1px solid #edf2f7;
+    font-family: inherit;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: #1e293b;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.typeBtn:last-child {
+    border-right: none;
+}
+
+.tabIcon {
+    color: #1e293b;
+    transition: color 0.2s ease;
+}
+
+.typeBtnActive {
+    background: #ffffff;
+    color: #f26522;
+    font-weight: 700;
+}
+
+.typeBtnActive .tabIcon {
+    color: #f26522;
+}
+
+.typeBtnActive::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 12px;
+    right: 12px;
+    height: 2.5px;
+    background-color: #f26522;
+    border-radius: 4px 4px 0 0;
+}
+
+/* 2. Form Area */
+.formArea {
+    padding: 1.5rem 1.5rem 1.65rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* 3. Independent Pickup & Drop Inputs with Centered Clearance */
+.routeRow {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 54px;
+}
+
+.fieldBox {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    min-height: 58px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fieldBox:focus-within {
+    border-color: #cbd5e1;
+    box-shadow: 0 0 0 3px rgba(242, 101, 34, 0.08);
+}
+
+.pinIcon,
+.metaIcon {
+    color: #0e1e2d;
+    flex-shrink: 0;
+}
+
+.fieldDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    min-width: 0;
+}
+
+.fieldLabel {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: #64748b;
+    margin-bottom: 2px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.fieldInput {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 0.88rem;
+    color: #0e1e2d;
+    font-weight: 600;
+    padding: 0;
+    width: 100%;
+}
+
+.fieldInput::placeholder {
+    color: #94a3b8;
+    font-weight: 400;
+    font-size: 0.84rem;
+}
+
+/* Floating Centered Swap Button */
+.switchLocationBtn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    color: #0e1e2d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 5;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+    transition: all 0.2s ease;
+}
+
+.switchLocationBtn:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+/* 4. Date, Time, Passengers Row */
+.specsRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.metaValue {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #0e1e2d;
+    white-space: nowrap;
+}
+
+.passengerSelectRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.dropdownCarat {
+    color: #0e1e2d;
+    flex-shrink: 0;
+}
+
+/* 5. Primary Search CTA */
+.searchSubmitBtn {
+    background-color: #f26522;
+    color: #ffffff;
+    border: none;
+    border-radius: 14px;
+    padding: 16px 24px;
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(242, 101, 34, 0.35);
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    width: 100%;
+    margin-top: 0.25rem;
+}
+
+.searchSubmitBtn:hover {
+    background-color: #d95314;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(242, 101, 34, 0.42);
+}
+
+/* =====================================================================
+   MOBILE VIEW (320px to 425px) - 100% REPLICA OF REQUIRED SCREENSHOT
+   ===================================================================== */
+@media (max-width: 520px) {
+    .widgetBox {
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .formArea {
+        padding: 0.8rem 0.65rem 0.9rem 0.65rem;
+        gap: 0.55rem;
+    }
+
+    /* 1. All 4 Tabs Fit Cleanly Across Without Scrolling */
+    .typeBar {
+        overflow-x: visible;
+    }
+
+    .typeBtn {
+        padding: 9px 4px;
+        font-size: 0.68rem;
+        gap: 3px;
+    }
+
+    .typeBtn svg {
+        width: 13px;
+        height: 13px;
+    }
+
+    /* 2. Side-by-Side Pickup & Drop Location (No Truncation) */
+    .routeRow {
+        gap: 18px;
+    }
+
+    .fieldBox {
+        min-height: 44px;
+        padding: 4px 7px;
+        gap: 6px;
+        border-radius: 9px;
+    }
+
+    .pinIcon,
+    .metaIcon {
+        width: 14px;
+        height: 14px;
+    }
+
+    .fieldLabel {
+        font-size: 0.6rem;
+        line-height: 1.1;
+        margin-bottom: 1px;
+        white-space: nowrap;
+    }
+
+    .fieldInput {
+        font-size: 0.72rem;
+        line-height: 1.2;
+    }
+
+    .fieldInput::placeholder {
+        font-size: 0.67rem;
+    }
+
+    /* Compact Centered Swap Button With Clear Margin */
+    .switchLocationBtn {
+        display: flex !important;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+    }
+
+    .switchLocationBtn svg {
+        width: 11px;
+        height: 11px;
+    }
+
+    /* 3. Specs Row: 3 Clean Columns with No Text Wrapping */
+    .specsRow {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 5px;
+    }
+
+    .specsRow .fieldBox {
+        padding: 4px 6px;
+        gap: 5px;
+    }
+
+    .metaValue {
+        font-size: 0.72rem;
+        line-height: 1.2;
+        white-space: nowrap;
+    }
+
+    .dropdownCarat {
+        width: 13px;
+        height: 13px;
+    }
+
+    /* 4. Full Width Clean CTA Button */
+    .searchSubmitBtn {
+        padding: 11px 16px;
+        font-size: 0.88rem;
+        border-radius: 10px;
+        margin-top: 0.1rem;
+        box-shadow: 0 4px 14px rgba(242, 101, 34, 0.3);
+    }
+}
+
+/* Specific micro-tuning for screens 320px - 360px */
+@media (max-width: 360px) {
+    .formArea {
+        padding: 0.7rem 0.5rem 0.8rem 0.5rem;
+        gap: 0.45rem;
+    }
+
+    .typeBtn {
+        font-size: 0.62rem;
+        padding: 8px 2px;
+        gap: 2px;
+    }
+
+    .typeBtn svg {
+        width: 11px;
+        height: 11px;
+    }
+
+    .routeRow {
+        gap: 14px;
+    }
+
+    .fieldBox {
+        min-height: 40px;
+        padding: 3px 5px;
+        gap: 4px;
+    }
+
+    .pinIcon,
+    .metaIcon {
+        width: 12px;
+        height: 12px;
+    }
+
+    .fieldLabel {
+        font-size: 0.55rem;
+    }
+
+    .fieldInput {
+        font-size: 0.65rem;
+    }
+
+    .fieldInput::placeholder {
+        font-size: 0.62rem;
+    }
+
+    .metaValue {
+        font-size: 0.66rem;
+    }
+
+    .switchLocationBtn {
+        width: 19px;
+        height: 19px;
+    }
+
+    .switchLocationBtn svg {
+        width: 9px;
+        height: 9px;
+    }
+}
+
+/* =====================================================================
+   MOBILE VIEW (320px to 425px) - 100% REPLICA OF TARGET SCREENSHOT
+   ===================================================================== */
+@media (max-width: 520px) {
+    .widgetBox {
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .formArea {
+        padding: 0.75rem 0.6rem 0.85rem 0.6rem;
+        gap: 0.5rem;
+    }
+
+    /* 1. Category Tabs: Clean horizontal fit */
+    .typeBar {
+        overflow-x: visible;
+    }
+
+    .typeBtn {
+        padding: 8px 2px;
+        font-size: 0.6rem;
+        font-weight: 600;
+        gap: 3px;
+    }
+
+    .typeBtn svg {
+        width: 11px;
+        height: 11px;
+    }
+
+    /* 2. Pickup & Drop: Side-by-side with no truncation */
+    .routeRow {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: relative;
+        gap: 16px;
+    }
+
+    .fieldBox {
+        min-height: 42px;
+        padding: 3px 6px;
+        gap: 5px;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .pinIcon,
+    .metaIcon {
+        width: 13px;
+        height: 13px;
+    }
+
+    .fieldLabel {
+        font-size: 0.54rem;
+        font-weight: 500;
+        line-height: 1.1;
+        margin-bottom: 1px;
+        white-space: nowrap;
+        color: #475569;
+    }
+
+    .fieldInput {
+        font-size: 0.62rem;
+        font-weight: 600;
+        line-height: 1.15;
+    }
+
+    .fieldInput::placeholder {
+        font-size: 0.58rem;
+        color: #94a3b8;
+    }
+
+    /* Compact Centered Swap Button with clean clearance */
+    .switchLocationBtn {
+        display: flex !important;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid #e2e8f0;
+        background: #ffffff;
+        box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+    }
+
+    .switchLocationBtn svg {
+        width: 10px;
+        height: 10px;
+    }
+
+    /* 3. Specs Row: Date, Time & Passengers (3 Columns, No Text Wrap) */
+    .specsRow {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 4px;
+    }
+
+    .specsRow .fieldBox {
+        padding: 3px 5px;
+        gap: 4px;
+        min-height: 42px;
+    }
+
+    .metaValue {
+        font-size: 0.64rem;
+        font-weight: 700;
+        line-height: 1.15;
+        white-space: nowrap;
+    }
+
+    .dropdownCarat {
+        width: 11px;
+        height: 11px;
+    }
+
+    /* 4. Full Width CTA Button */
+    .searchSubmitBtn {
+        padding: 10px 14px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        border-radius: 9px;
+        margin-top: 0.1rem;
+        box-shadow: 0 4px 12px rgba(242, 101, 34, 0.3);
+    }
+}
+
+/* =====================================================================
+   MOBILE VIEW (320px to 425px) - STRICT PROPORTIONAL SCALE DOWN
+   ===================================================================== */
+@media (max-width: 480px) {
+    .widgetBox {
+        border-radius: 18px;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .formArea {
+        padding: 0.85rem 0.75rem 1rem 0.75rem;
+        gap: 0.6rem;
+    }
+
+    /* 1. Category Tabs */
+    .typeBar {
+        overflow-x: visible;
+    }
+
+    .typeBtn {
+        padding: 10px 4px;
+        font-size: 0.68rem;
+        gap: 4px;
+    }
+
+    .typeBtn svg,
+    .tabIcon {
+        width: 13px !important;
+        height: 13px !important;
+    }
+
+    /* 2. Route Row: Pickup & Drop */
+    .routeRow {
+        gap: 18px;
+    }
+
+    .fieldBox {
+        min-height: 46px;
+        padding: 4px 8px;
+        gap: 6px;
+        border-radius: 10px;
+    }
+
+    .pinIcon,
+    .metaIcon {
+        width: 15px !important;
+        height: 15px !important;
+    }
+
+    .fieldLabel {
+        font-size: 0.58rem;
+        margin-bottom: 1px;
+        line-height: 1.1;
+    }
+
+    .fieldInput {
+        font-size: 0.68rem;
+        line-height: 1.2;
+    }
+
+    .fieldInput::placeholder {
+        font-size: 0.64rem;
+    }
+
+    /* Centered Swap Icon Button */
+    .switchLocationBtn {
+        width: 24px;
+        height: 24px;
+    }
+
+    .switchLocationBtn svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    /* 3. Specs Row: Date, Time & Passengers */
+    .specsRow {
+        gap: 6px;
+    }
+
+    .specsRow .fieldBox {
+        min-height: 46px;
+        padding: 4px 6px;
+        gap: 5px;
+    }
+
+    .metaValue {
+        font-size: 0.68rem;
+        line-height: 1.2;
+    }
+
+    .dropdownCarat {
+        width: 12px !important;
+        height: 12px !important;
+    }
+
+    /* 4. Search CTA Button */
+    .searchSubmitBtn {
+        padding: 11px 18px;
+        font-size: 0.92rem;
+        border-radius: 11px;
+        margin-top: 0.15rem;
+    }
+
+    .searchSubmitBtn svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Micro screens (320px - 360px) */
+@media (max-width: 360px) {
+    .formArea {
+        padding: 0.7rem 0.55rem 0.85rem 0.55rem;
+        gap: 0.5rem;
+    }
+
+    .typeBtn {
+        font-size: 0.6rem;
+        padding: 8px 2px;
+        gap: 3px;
+    }
+
+    .typeBtn svg,
+    .tabIcon {
+        width: 11px !important;
+        height: 11px !important;
+    }
+
+    .routeRow {
+        gap: 14px;
+    }
+
+    .fieldBox {
+        min-height: 42px;
+        padding: 3px 6px;
+        gap: 5px;
+    }
+
+    .pinIcon,
+    .metaIcon {
+        width: 13px !important;
+        height: 13px !important;
+    }
+
+    .fieldLabel {
+        font-size: 0.52rem;
+    }
+
+    .fieldInput {
+        font-size: 0.62rem;
+    }
+
+    .fieldInput::placeholder {
+        font-size: 0.58rem;
+    }
+
+    .specsRow {
+        gap: 4px;
+    }
+
+    .specsRow .fieldBox {
+        min-height: 42px;
+        padding: 3px 4px;
+        gap: 4px;
+    }
+
+    .metaValue {
+        font-size: 0.62rem;
+    }
+
+    .switchLocationBtn {
+        width: 20px;
+        height: 20px;
+    }
+
+    .switchLocationBtn svg {
+        width: 10px;
+        height: 10px;
+    }
+
+    .searchSubmitBtn {
+        padding: 10px 14px;
+        font-size: 0.84rem;
+    }
+}
