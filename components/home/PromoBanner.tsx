@@ -34,9 +34,7 @@ export default function PromoBanner() {
 
     return (
         <section className={styles.promoSection}>
-            {/* =========================================================
-          1. DESKTOP VIEW (Strictly Preserved)
-          ========================================================= */}
+            {/* 1. DESKTOP VIEW (Strictly Preserved) */}
             <motion.div
                 className={styles.desktopBannerWrapper}
                 initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 15 }}
@@ -50,7 +48,7 @@ export default function PromoBanner() {
                         src="/logo/rk-home.png"
                         alt="RK Travels Fleet"
                         fill
-                        sizes="100vw"
+                        unoptimized
                         className={styles.bgImg}
                         priority
                     />
@@ -64,7 +62,8 @@ export default function PromoBanner() {
                             <span className={styles.highlightText}>for Every Journey</span>
                         </h2>
                         <p className={styles.bannerSubtext}>
-                            Book your next ride with RK Travels and experience safe, reliable and affordable travel.
+                            Book your next ride with RK Travels and experience safe,
+                            reliable and affordable travel.
                         </p>
                     </div>
 
@@ -109,9 +108,7 @@ export default function PromoBanner() {
                 </div>
             </motion.div>
 
-            {/* =========================================================
-          2. MOBILE VIEW (320px to 425px) - Exact match for screenshot
-          ========================================================= */}
+            {/* 2. MOBILE VIEW (320px to 425px) Exact match */}
             <div className={styles.mobileContainer}>
                 {/* Top Dark Scenic Card */}
                 <div className={styles.mobileSpecialCard} style={{ position: 'relative' }}>
@@ -119,12 +116,11 @@ export default function PromoBanner() {
                         src="/logo/rk-home.png"
                         alt="Outstation Trips Offer"
                         fill
-                        sizes="(max-width: 480px) 100vw, 420px"
+                        unoptimized
                         className={styles.mobileCardBg}
                         priority
                     />
                     <div className={styles.mobileCardDarkOverlay} />
-
                     <div className={styles.mobileCardContent}>
                         {/* Tagline */}
                         <div className={styles.specialOfferTag}>

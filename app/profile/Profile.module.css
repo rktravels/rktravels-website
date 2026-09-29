@@ -1,0 +1,827 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap');
+
+.profileWrapper {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #f8fafc;
+    color: #0e1e2d;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboardContainer {
+    max-width: 1100px;
+    width: 100%;
+    margin: 2rem auto 4rem auto;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+    flex: 1;
+}
+
+/* ==========================================================================
+   1. USER HERO BANNER
+   ========================================================================== */
+.userBanner {
+    background: linear-gradient(135deg, #0e1e2d 0%, #1a2f42 100%);
+    border-radius: 20px;
+    padding: 2rem 2.25rem;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 10px 25px rgba(14, 30, 45, 0.12);
+    margin-bottom: 1.5rem;
+}
+
+.userAvatarWrap {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.userAvatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #f26522;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 800;
+    box-shadow: 0 4px 14px rgba(242, 101, 34, 0.4);
+    flex-shrink: 0;
+}
+
+.userName {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin: 0 0 4px 0;
+    letter-spacing: -0.02em;
+}
+
+.userContact {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin: 0 0 8px 0;
+}
+
+.memberBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #a7f3d0;
+    background: rgba(16, 185, 129, 0.15);
+    padding: 3px 10px;
+    border-radius: 9999px;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.quickStatsRow {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.statBox {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 10px 18px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.statBox strong {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #f26522;
+}
+
+.statBox span {
+    font-size: 0.68rem;
+    color: #cbd5e1;
+}
+
+/* ==========================================================================
+   2. TAB NAVIGATION BAR
+   ========================================================================== */
+.tabBar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #ffffff;
+    padding: 6px;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+}
+
+.tabBtn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 18px;
+    border-radius: 10px;
+    border: none;
+    background: transparent;
+    color: #64748b;
+    font-size: 0.86rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.tabBtn:hover {
+    color: #0e1e2d;
+    background-color: #f1f5f9;
+}
+
+.activeTabBtn {
+    background-color: #f26522 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(242, 101, 34, 0.25);
+}
+
+/* ==========================================================================
+   3. TAB 1: PROFILE DETAILS FORM
+   ========================================================================== */
+.tabContentCard {
+    background-color: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #e2e8f0;
+    padding: 2rem 2.25rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.cardHeader {
+    margin-bottom: 1.75rem;
+}
+
+.cardTitle {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0e1e2d;
+    margin: 0 0 4px 0;
+}
+
+.cardSub {
+    font-size: 0.82rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.profileForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.inputGroup label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #334155;
+}
+
+.inputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.inputIcon {
+    position: absolute;
+    left: 14px;
+    color: #94a3b8;
+    pointer-events: none;
+}
+
+.textInput {
+    width: 100%;
+    padding: 11px 14px 11px 40px;
+    font-size: 0.86rem;
+    font-family: inherit;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    outline: none;
+    background-color: #f8fafc;
+    color: #0e1e2d;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.textInput:focus {
+    border-color: #f26522;
+    background-color: #ffffff;
+}
+
+.formActionRow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.saveBtn {
+    background-color: #f26522;
+    color: #ffffff;
+    border: none;
+    font-size: 0.86rem;
+    font-weight: 700;
+    padding: 11px 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(242, 101, 34, 0.25);
+    transition: all 0.2s ease;
+}
+
+.saveBtn:hover {
+    background-color: #d95314;
+    transform: translateY(-1px);
+}
+
+.savedAlert {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #16a34a;
+}
+
+/* ==========================================================================
+   4. TAB 2: MY BOOKINGS
+   ========================================================================== */
+.bookingList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.bookingCard {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 1.35rem 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bookingCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+.bookingTopRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.bookingBadgeWrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bookingService {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #f26522;
+    background-color: #fff4ea;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+.statusBadge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+.confirmed {
+    background-color: #ecfdf5;
+    color: #059669;
+}
+
+.completed {
+    background-color: #eff6ff;
+    color: #2563eb;
+}
+
+.cancelled {
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.bookingFare {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0e1e2d;
+}
+
+.bookingCarName {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 1rem;
+}
+
+/* Route Timeline */
+.routeTimeline {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 1.15rem;
+    padding-left: 2px;
+}
+
+.routeStop {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.dotFrom {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #22c55e;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.dotTo {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #ef4444;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.routeLine {
+    width: 2px;
+    height: 12px;
+    background-color: #cbd5e1;
+    margin-left: 3.5px;
+}
+
+.stopDetails {
+    display: flex;
+    flex-direction: column;
+}
+
+.stopLabel {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+}
+
+.stopText {
+    font-size: 0.82rem;
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.bookingFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px dashed #e2e8f0;
+    padding-top: 10px;
+}
+
+.footerDate {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.footerActions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bookingId {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #94a3b8;
+}
+
+.invoiceBtn {
+    background: transparent;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #334155;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.invoiceBtn:hover {
+    background-color: #f1f5f9;
+}
+
+/* ==========================================================================
+   5. TAB 3: RK CREDITS & WALLET
+   ========================================================================== */
+.creditsSection {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.walletBalanceCard {
+    background: linear-gradient(135deg, #fff9f3 0%, #ffebd8 100%);
+    border: 1px solid #fed7aa;
+    border-radius: 18px;
+    padding: 2rem 2.25rem;
+}
+
+.walletHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.walletIconWrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #f26522;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(242, 101, 34, 0.3);
+}
+
+.walletLabel {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.walletTotal {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #0e1e2d;
+    margin: 2px 0 0 0;
+}
+
+.walletNote {
+    font-size: 0.82rem;
+    color: #475569;
+    line-height: 1.5;
+    margin: 0 0 1.25rem 0;
+    max-width: 580px;
+}
+
+.walletActions {
+    display: flex;
+}
+
+.topUpBtn {
+    background-color: #0e1e2d;
+    color: #ffffff;
+    border: none;
+    font-size: 0.84rem;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.topUpBtn:hover {
+    background-color: #1e3a54;
+}
+
+.subHeading {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0e1e2d;
+    margin: 0 0 1.25rem 0;
+}
+
+.transactionList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.txnItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background-color: #f8fafc;
+    border: 1px solid #edf2f7;
+}
+
+.txnLeft {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.txnIconWrap {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.txnPlus {
+    background-color: #ecfdf5;
+    color: #10b981;
+}
+
+.txnMinus {
+    background-color: #fef2f2;
+    color: #ef4444;
+    transform: rotate(180deg);
+}
+
+.txnType {
+    display: block;
+    font-size: 0.84rem;
+    color: #0e1e2d;
+}
+
+.txnDate {
+    display: block;
+    font-size: 0.72rem;
+    color: #64748b;
+}
+
+.txnAmount {
+    font-size: 0.95rem;
+    font-weight: 800;
+}
+
+.creditGreen {
+    color: #059669;
+}
+
+.debitRed {
+    color: #dc2626;
+}
+
+/* ==========================================================================
+   TABLET RESPONSIVENESS (768px - 1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .dashboardContainer {
+        padding: 0 1rem;
+        margin: 1.5rem auto 3rem auto;
+    }
+
+    .userBanner {
+        padding: 1.75rem;
+    }
+
+    .tabContentCard {
+        padding: 1.75rem;
+    }
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS (320px - 425px)
+   ========================================================================== */
+@media (max-width: 480px) {
+    .dashboardContainer {
+        padding: 0 0.75rem;
+        margin: 1rem auto 2.5rem auto;
+    }
+
+    /* User banner stacks vertically */
+    .userBanner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.25rem 1rem;
+        border-radius: 16px;
+        gap: 1.15rem;
+    }
+
+    .userAvatarWrap {
+        gap: 12px;
+    }
+
+    .userAvatar {
+        width: 50px;
+        height: 50px;
+        font-size: 1.15rem;
+    }
+
+    .userName {
+        font-size: 1.15rem;
+    }
+
+    .userContact {
+        font-size: 0.72rem;
+    }
+
+    .quickStatsRow {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .statBox {
+        flex: 1;
+        padding: 8px 10px;
+    }
+
+    .statBox strong {
+        font-size: 1rem;
+    }
+
+    .statBox span {
+        font-size: 0.62rem;
+    }
+
+    /* Tabs compact on small viewports */
+    .tabBar {
+        padding: 4px;
+        border-radius: 12px;
+        gap: 4px;
+    }
+
+    .tabBtn {
+        padding: 8px 6px;
+        font-size: 0.74rem;
+        gap: 4px;
+    }
+
+    .tabBtn svg {
+        width: 15px;
+        height: 15px;
+    }
+
+    /* Profile Form 1-Column */
+    .tabContentCard {
+        padding: 1.25rem 1rem;
+        border-radius: 14px;
+    }
+
+    .cardTitle {
+        font-size: 1.1rem;
+    }
+
+    .cardSub {
+        font-size: 0.72rem;
+    }
+
+    .formGrid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .textInput {
+        font-size: 0.8rem;
+        padding: 10px 12px 10px 36px;
+    }
+
+    .saveBtn {
+        width: 100%;
+        padding: 10px;
+        font-size: 0.82rem;
+    }
+
+    .formActionRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    /* Bookings Mobile Card */
+    .bookingCard {
+        padding: 1rem;
+    }
+
+    .bookingService {
+        font-size: 0.7rem;
+    }
+
+    .statusBadge {
+        font-size: 0.65rem;
+    }
+
+    .bookingFare {
+        font-size: 1rem;
+    }
+
+    .bookingCarName {
+        font-size: 0.8rem;
+    }
+
+    .stopText {
+        font-size: 0.76rem;
+    }
+
+    .bookingFooter {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .footerActions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    /* Wallet Credits Mobile */
+    .walletBalanceCard {
+        padding: 1.25rem 1rem;
+        border-radius: 14px;
+    }
+
+    .walletIconWrap {
+        width: 40px;
+        height: 40px;
+    }
+
+    .walletTotal {
+        font-size: 1.5rem;
+    }
+
+    .walletNote {
+        font-size: 0.74rem;
+    }
+
+    .topUpBtn {
+        width: 100%;
+        padding: 9px;
+        font-size: 0.78rem;
+    }
+
+    .txnItem {
+        padding: 10px;
+    }
+
+    .txnType {
+        font-size: 0.76rem;
+    }
+
+    .txnDate {
+        font-size: 0.65rem;
+    }
+
+    .txnAmount {
+        font-size: 0.84rem;
+    }
+}
+
+/* Micro screens (320px - 340px) */
+@media (max-width: 340px) {
+    .userName {
+        font-size: 1.05rem;
+    }
+
+    .tabBtn {
+        font-size: 0.68rem;
+    }
+
+    .tabBtn span {
+        font-size: 0.66rem;
+    }
+}

@@ -3,7 +3,6 @@
 .header {
     width: 100%;
     height: 96px;
-    /* Expanded height to accommodate the large logo */
     background-color: #ffffff;
     border-bottom: 1px solid #f1f5f9;
     position: sticky;
@@ -27,7 +26,13 @@
     box-sizing: border-box;
 }
 
-/* Extra Large Logo Container */
+/* Brand Cluster (Holds Logo on Desktop, Hamburger + Logo on Mobile/Tablet) */
+.brandCluster {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
 .logoLink {
     display: inline-flex;
     align-items: center;
@@ -38,7 +43,6 @@
 .logoImageWrap {
     position: relative;
     height: 72px;
-    /* Increased from 56px */
     display: flex;
     align-items: center;
 }
@@ -46,8 +50,7 @@
 .logoImage {
     object-fit: contain;
     width: auto;
-    height: 72px;
-    /* Bold, prominent brand mark */
+    height: 100%;
 }
 
 /* Desktop Navigation */
@@ -141,13 +144,155 @@
     box-shadow: 0 6px 18px rgba(242, 101, 34, 0.35);
 }
 
+/* User Profile Pill & Dropdown (Logged-In State) */
+.profileWrapper {
+    position: relative;
+}
+
+.profilePillBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #fff9f3;
+    border: 1px solid #fed7aa;
+    padding: 6px 14px 6px 6px;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.profilePillBtn:hover {
+    border-color: #f26522;
+    box-shadow: 0 4px 14px rgba(242, 101, 34, 0.15);
+}
+
+.avatarCircle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f26522, #d95314);
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(242, 101, 34, 0.35);
+    flex-shrink: 0;
+}
+
+.profileName {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #0e1e2d;
+    max-width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dropdownChevron {
+    color: #64748b;
+    transition: transform 0.2s ease;
+}
+
+.chevronRotated {
+    transform: rotate(180deg);
+}
+
+/* Profile Dropdown Menu */
+.profileDropdownMenu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 220px;
+    background-color: #ffffff;
+    border: 1px solid #edf2f7;
+    border-radius: 16px;
+    box-shadow: 0 16px 36px rgba(14, 30, 45, 0.12);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    z-index: 120;
+    animation: dropFadeIn 0.2s ease forwards;
+}
+
+@keyframes dropFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdownHeader {
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropUserTitle {
+    font-size: 0.88rem;
+    color: #0e1e2d;
+}
+
+.dropUserPhone {
+    font-size: 0.74rem;
+    color: #64748b;
+}
+
+.dropdownDivider {
+    height: 1px;
+    background-color: #f1f5f9;
+    margin: 6px 0;
+}
+
+.dropdownItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #334155;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background 0.15s ease, color 0.15s ease;
+    font-family: inherit;
+}
+
+.dropdownItem:hover {
+    background-color: #fff4ea;
+    color: #f26522;
+}
+
+.logoutItem {
+    color: #ef4444 !important;
+}
+
+.logoutItem:hover {
+    background-color: #fef2f2 !important;
+    color: #dc2626 !important;
+}
+
+/* Mobile & Drawer */
 .menuToggleBtn {
     display: none;
     background: transparent;
     border: none;
     color: #0e1e2d;
     cursor: pointer;
-    padding: 6px;
+    padding: 0;
     align-items: center;
     justify-content: center;
     transition: color 0.2s ease;
@@ -168,6 +313,30 @@
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
     padding: 1.25rem 1.5rem;
     box-sizing: border-box;
+}
+
+.mobileUserRibbon {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.mobileUserData {
+    display: flex;
+    flex-direction: column;
+}
+
+.mobileUserData strong {
+    font-size: 0.92rem;
+    color: #0e1e2d;
+}
+
+.mobileUserData span {
+    font-size: 0.74rem;
+    color: #64748b;
 }
 
 .mobileNavLinks {
@@ -192,6 +361,18 @@
     color: #f26522;
 }
 
+.mobileLogoutBtn {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ef4444;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+}
+
 /* Tablet Breakpoints */
 @media (max-width: 1024px) {
     .header {
@@ -206,8 +387,7 @@
         font-size: 0.86rem;
     }
 
-    .logoImageWrap,
-    .logoImage {
+    .logoImageWrap {
         height: 60px;
     }
 }
@@ -225,6 +405,11 @@
         display: none;
     }
 
+    .brandCluster {
+        gap: 8px;
+        /* Places logo closely next to the hamburger icon */
+    }
+
     .menuToggleBtn {
         display: flex;
     }
@@ -234,8 +419,7 @@
         top: 82px;
     }
 
-    .logoImageWrap,
-    .logoImage {
+    .logoImageWrap {
         height: 56px;
     }
 
@@ -254,27 +438,45 @@
 
     .headerContainer {
         padding: 0 0.85rem;
-        gap: 0.6rem;
     }
 
-    .logoImageWrap,
-    .logoImage {
-        height: 50px;
-        /* High visual presence on mobile */
-    }
-
-    .rightActions {
-        gap: 8px;
-    }
-
-    .authBtn {
-        padding: 8px 14px;
-        font-size: 0.78rem;
-        border-radius: 9px;
+    .brandCluster {
+        gap: 6px;
+        /* Tight, proportional spacing between hamburger and logo */
     }
 
     .menuToggleBtn {
-        padding: 4px;
+        padding: 2px;
+    }
+
+    .rightActions {
+        gap: 6px;
+    }
+
+    .logoImageWrap {
+        height: 50px;
+    }
+
+    .authBtn {
+        padding: 8px 12px;
+        font-size: 0.76rem;
+        border-radius: 9px;
+    }
+
+    .profilePillBtn {
+        padding: 4px 8px 4px 4px;
+        gap: 6px;
+    }
+
+    .avatarCircle {
+        width: 28px;
+        height: 28px;
+        font-size: 0.74rem;
+    }
+
+    .profileName {
+        font-size: 0.76rem;
+        max-width: 80px;
     }
 
     .mobileDrawer {
@@ -287,9 +489,21 @@
         height: 72px;
     }
 
-    .logoImageWrap,
-    .logoImage {
+    .brandCluster {
+        gap: 4px;
+        /* Ultra-compact spacing for smaller mobile screens */
+    }
+
+    .logoImageWrap {
         height: 42px;
+    }
+
+    .profileName {
+        display: none;
+    }
+
+    .profilePillBtn {
+        padding: 4px;
     }
 
     .authBtn {

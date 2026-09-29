@@ -87,7 +87,7 @@ export default function Footer() {
                                     alt="RK Travels"
                                     width={220}
                                     height={60}
-                                    style={{ width: 'auto', height: '100%' }}
+                                    unoptimized
                                     className={styles.logoImage}
                                 />
                             </div>
@@ -98,7 +98,9 @@ export default function Footer() {
                         </p>
                         <div className={styles.supportBadge}>
                             <div className={styles.badgePulseDot} />
-                            <span>Dispatch Desk: <strong>Available 24/7</strong></span>
+                            <span>
+                                Dispatch Desk: <strong>Available 24/7</strong>
+                            </span>
                         </div>
                     </div>
 
@@ -142,7 +144,6 @@ export default function Footer() {
                             <h4 className={styles.colTitle}>Get In Touch</h4>
                             <span className={styles.colUnderline} />
                         </div>
-
                         <div className={styles.contactList}>
                             <div className={styles.contactItem}>
                                 <PhoneCall size={17} className={styles.contactIcon} />
@@ -151,7 +152,6 @@ export default function Footer() {
                                     <a href="tel:+919876543210">+91 98765 43210</a>
                                 </div>
                             </div>
-
                             <div className={styles.contactItem}>
                                 <Mail size={17} className={styles.contactIcon} />
                                 <div>
@@ -159,7 +159,6 @@ export default function Footer() {
                                     <a href="mailto:bookings@rktravels.com">bookings@rktravels.com</a>
                                 </div>
                             </div>
-
                             <div className={styles.contactItem}>
                                 <MapPin size={17} className={styles.contactIcon} />
                                 <div>
@@ -178,7 +177,6 @@ export default function Footer() {
                     <p className={styles.copyrightText}>
                         &copy; 2026 <strong>RK Travels</strong>. All rights reserved.
                     </p>
-
                     <div className={styles.legalLinks}>
                         <Link href="/terms">Terms of Service</Link>
                         <span className={styles.legalDot}>•</span>
@@ -186,7 +184,6 @@ export default function Footer() {
                         <span className={styles.legalDot}>•</span>
                         <Link href="/refund">Refund Rules</Link>
                     </div>
-
                     <p className={styles.craftedText}>
                         Safe journeys powered with <Heart size={13} className={styles.heartIcon} /> by RK Travels
                     </p>

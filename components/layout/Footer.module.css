@@ -3,7 +3,6 @@
 .footer {
     width: 100%;
     background-color: #fffaf5;
-    /* Warm light cream background */
     color: #334155;
     font-family: 'Sora', system-ui, -apple-system, sans-serif;
     overflow: hidden;
@@ -11,9 +10,7 @@
     border-top: 1px solid #fee3cd;
 }
 
-/* ==========================================================================
-   1. VALUE ASSURANCE TOP RIBBON
-   ========================================================================== */
+/* 1. VALUE ASSURANCE TOP RIBBON */
 .ribbonWrapper {
     border-bottom: 1px solid #fed7aa;
     background-color: #fff4ea;
@@ -68,9 +65,7 @@
     background-color: #fed7aa;
 }
 
-/* ==========================================================================
-   2. MAIN FOOTER CONTENT GRID
-   ========================================================================== */
+/* 2. MAIN FOOTER CONTENT GRID */
 .mainFooterContainer {
     max-width: 1320px;
     margin: 0 auto;
@@ -105,8 +100,6 @@
 
 .logoImage {
     object-fit: contain;
-    width: auto;
-    height: 60px;
 }
 
 .brandBio {
@@ -254,7 +247,7 @@
 
 .contactItem a,
 .contactItem span {
-    font-size: 0.80rem;
+    font-size: 0.8rem;
     color: #64748b;
     text-decoration: none;
     line-height: 1.4;
@@ -265,9 +258,7 @@
     color: #f26522;
 }
 
-/* ==========================================================================
-   3. BOTTOM LEGAL BAR
-   ========================================================================== */
+/* 3. BOTTOM LEGAL BAR */
 .bottomBarWrapper {
     border-top: 1px solid #fed7aa;
     padding: 1.25rem 0;
@@ -330,9 +321,7 @@
     fill: #f26522;
 }
 
-/* ==========================================================================
-   TABLET RESPONSIVENESS (768px - 1024px)
-   ========================================================================== */
+/* Tablet Responsiveness */
 @media (max-width: 1024px) {
     .ribbonContainer {
         flex-wrap: wrap;
@@ -356,9 +345,7 @@
     }
 }
 
-/* ==========================================================================
-   MOBILE RESPONSIVENESS (320px - 425px)
-   ========================================================================== */
+/* Mobile Responsiveness */
 @media (max-width: 480px) {
     .ribbonWrapper {
         padding: 1rem 0;
@@ -406,8 +393,7 @@
         gap: 1.85rem;
     }
 
-    .logoImageWrap,
-    .logoImage {
+    .logoImageWrap {
         height: 48px;
     }
 
@@ -471,9 +457,7 @@
 
 /* Micro screens (< 350px) */
 @media (max-width: 350px) {
-
-    .logoImageWrap,
-    .logoImage {
+    .logoImageWrap {
         height: 42px;
     }
 
@@ -488,10 +472,4 @@
     .brandBio {
         font-size: 0.72rem;
     }
-}
-
-.logoImage {
-    object-fit: contain;
-    width: auto !important;
-    height: 60px;
 }
