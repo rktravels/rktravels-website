@@ -19,9 +19,7 @@
     flex: 1;
 }
 
-/* ==========================================================================
-   1. USER HERO BANNER
-   ========================================================================== */
+/* 1. User Hero Summary Banner */
 .userBanner {
     background: linear-gradient(135deg, #0e1e2d 0%, #1a2f42 100%);
     border-radius: 20px;
@@ -109,9 +107,7 @@
     color: #cbd5e1;
 }
 
-/* ==========================================================================
-   2. TAB NAVIGATION BAR
-   ========================================================================== */
+/* 2. Tab Navigation Bar */
 .tabBar {
     display: flex;
     align-items: center;
@@ -154,9 +150,7 @@
     box-shadow: 0 4px 12px rgba(242, 101, 34, 0.25);
 }
 
-/* ==========================================================================
-   3. TAB 1: PROFILE DETAILS FORM
-   ========================================================================== */
+/* 3. Tab 1: Profile Details Form */
 .tabContentCard {
     background-color: #ffffff;
     border-radius: 18px;
@@ -166,6 +160,9 @@
 }
 
 .cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 1.75rem;
 }
 
@@ -180,6 +177,26 @@
     font-size: 0.82rem;
     color: #64748b;
     margin: 0;
+}
+
+.editToggleBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #fff4ea;
+    border: 1px solid #fed7aa;
+    color: #f26522;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.editToggleBtn:hover {
+    background-color: #f26522;
+    color: #ffffff;
 }
 
 .profileForm {
@@ -227,7 +244,7 @@
     border: 1px solid #cbd5e1;
     border-radius: 10px;
     outline: none;
-    background-color: #f8fafc;
+    background-color: #ffffff;
     color: #0e1e2d;
     box-sizing: border-box;
     transition: border-color 0.2s ease, background-color 0.2s ease;
@@ -235,7 +252,14 @@
 
 .textInput:focus {
     border-color: #f26522;
-    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(242, 101, 34, 0.1);
+}
+
+.disabledInput {
+    background-color: #f8fafc !important;
+    color: #64748b !important;
+    border-color: #e2e8f0 !important;
+    cursor: not-allowed;
 }
 
 .formActionRow {
@@ -272,9 +296,7 @@
     color: #16a34a;
 }
 
-/* ==========================================================================
-   4. TAB 2: MY BOOKINGS
-   ========================================================================== */
+/* 4. Tab 2: My Bookings */
 .bookingList {
     display: flex;
     flex-direction: column;
@@ -455,9 +477,7 @@
     background-color: #f1f5f9;
 }
 
-/* ==========================================================================
-   5. TAB 3: RK CREDITS & WALLET
-   ========================================================================== */
+/* 5. Tab 3: RK Credits & Wallet */
 .creditsSection {
     display: flex;
     flex-direction: column;
@@ -607,9 +627,7 @@
     color: #dc2626;
 }
 
-/* ==========================================================================
-   TABLET RESPONSIVENESS (768px - 1024px)
-   ========================================================================== */
+/* Tablet Breakpoints */
 @media (max-width: 1024px) {
     .dashboardContainer {
         padding: 0 1rem;
@@ -625,16 +643,13 @@
     }
 }
 
-/* ==========================================================================
-   MOBILE RESPONSIVENESS (320px - 425px)
-   ========================================================================== */
+/* Mobile Screens (320px to 425px) */
 @media (max-width: 480px) {
     .dashboardContainer {
         padding: 0 0.75rem;
         margin: 1rem auto 2.5rem auto;
     }
 
-    /* User banner stacks vertically */
     .userBanner {
         flex-direction: column;
         align-items: flex-start;
@@ -679,7 +694,6 @@
         font-size: 0.62rem;
     }
 
-    /* Tabs compact on small viewports */
     .tabBar {
         padding: 4px;
         border-radius: 12px;
@@ -697,10 +711,21 @@
         height: 15px;
     }
 
-    /* Profile Form 1-Column */
     .tabContentCard {
         padding: 1.25rem 1rem;
         border-radius: 14px;
+    }
+
+    .cardHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .editToggleBtn {
+        align-self: flex-start;
+        padding: 6px 12px;
+        font-size: 0.78rem;
     }
 
     .cardTitle {
@@ -733,7 +758,6 @@
         gap: 0.5rem;
     }
 
-    /* Bookings Mobile Card */
     .bookingCard {
         padding: 1rem;
     }
@@ -769,7 +793,6 @@
         justify-content: space-between;
     }
 
-    /* Wallet Credits Mobile */
     .walletBalanceCard {
         padding: 1.25rem 1rem;
         border-radius: 14px;
@@ -811,7 +834,6 @@
     }
 }
 
-/* Micro screens (320px - 340px) */
 @media (max-width: 340px) {
     .userName {
         font-size: 1.05rem;

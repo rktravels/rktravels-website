@@ -1,21 +1,20 @@
 'use client';
 
-import React, { useState } from 'react';
-import Image from 'next/image';
+import React, { useState, useEffect } from 'react';
 import {
-    User,
+    User as UserIcon,
     CalendarDays,
     Wallet,
     Phone,
     Mail,
     MapPin,
     Clock,
-    ArrowRight,
     ShieldCheck,
     CheckCircle2,
     TrendingUp,
     Download,
-    AlertCircle,
+    Edit3,
+    X,
 } from 'lucide-react';
 import styles from './Profile.module.css';
 
@@ -84,15 +83,64 @@ const MOCK_TRANSACTIONS = [
 export default function ProfilePage() {
     const [activeTab, setActiveTab] = useState<ActiveTab>('profile');
     const [savedSuccess, setSavedSuccess] = useState(false);
+    const [isEditing, setIsEditing] = useState(false);
 
-    // Profile Form State
-    const [name, setName] = useState('Rahul Sharma');
+    // Profile Form State default: User & user@gmail.com
+    const [name, setName] = useState('User');
     const [phone, setPhone] = useState('+91 98765 43210');
-    const [email, setEmail] = useState('rahul.sharma@example.com');
+    const [email, setEmail] = useState('user@gmail.com');
     const [city, setCity] = useState('Bangalore, Karnataka');
+
+    // Load current user profile from localStorage
+    useEffect(() => {
+        const loadUserData = () => {
+            const stored = localStorage.getItem('rk_user');
+            if (stored) {
+                try {
+                    const user = JSON.parse(stored);
+                    if (user.name) setName(user.name);
+                    if (user.phone) {
+                        setPhone(user.phone.startsWith('+91') ? user.phone : `+91 ${user.phone}`);
+                    }
+                    if (user.email) setEmail(user.email);
+                    if (user.city) setCity(user.city);
+                } catch {
+                    // Keep defaults
+                }
+            }
+        };
+
+        loadUserData();
+        window.addEventListener('rk_auth_changed', loadUserData);
+        return () => {
+            window.removeEventListener('rk_auth_changed', loadUserData);
+        };
+    }, []);
+
+    // Compute uppercase initials (e.g. User -> U)
+    const getInitials = (nameStr: string) => {
+        if (!nameStr) return 'U';
+        const parts = nameStr.trim().split(' ').filter(Boolean);
+        if (parts.length === 1) return parts[0][0].toUpperCase();
+        return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+    };
 
     const handleProfileSave = (e: React.FormEvent) => {
         e.preventDefault();
+
+        const rawPhone = phone.replace(/^\+91\s*/, '').trim();
+
+        const updatedUser = {
+            name: name.trim() || 'User',
+            phone: rawPhone,
+            email: email.trim() || 'user@gmail.com',
+            city: city.trim(),
+        };
+
+        localStorage.setItem('rk_user', JSON.stringify(updatedUser));
+        window.dispatchEvent(new Event('rk_auth_changed'));
+
+        setIsEditing(false);
         setSavedSuccess(true);
         setTimeout(() => setSavedSuccess(false), 3500);
     };
@@ -106,7 +154,7 @@ export default function ProfilePage() {
                 <section className={styles.userBanner}>
                     <div className={styles.userAvatarWrap}>
                         <div className={styles.userAvatar}>
-                            <span>RS</span>
+                            <span>{getInitials(name)}</span>
                         </div>
                         <div className={styles.userMeta}>
                             <h1 className={styles.userName}>{name}</h1>
@@ -139,7 +187,7 @@ export default function ProfilePage() {
                         className={`${styles.tabBtn} ${activeTab === 'profile' ? styles.activeTabBtn : ''}`}
                         onClick={() => setActiveTab('profile')}
                     >
-                        <User size={18} />
+                        <UserIcon size={18} />
                         <span>Profile Details</span>
                     </button>
 
@@ -162,9 +210,7 @@ export default function ProfilePage() {
                     </button>
                 </nav>
 
-                {/* ========================================================
-            TAB 1: PROFILE DETAILS
-            ======================================================== */}
+                {/* TAB 1: PROFILE DETAILS FORM */}
                 {activeTab === 'profile' && (
                     <section className={styles.tabContentCard}>
                         <div className={styles.cardHeader}>
@@ -172,6 +218,25 @@ export default function ProfilePage() {
                                 <h2 className={styles.cardTitle}>Personal Information</h2>
                                 <p className={styles.cardSub}>Update your contact and identification details</p>
                             </div>
+
+                            {/* Edit / Cancel Toggle Button */}
+                            <button
+                                type="button"
+                                className={styles.editToggleBtn}
+                                onClick={() => setIsEditing((prev) => !prev)}
+                            >
+                                {isEditing ? (
+                                    <>
+                                        <X size={15} />
+                                        <span>Cancel</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <Edit3 size={15} />
+                                        <span>Edit Profile</span>
+                                    </>
+                                )}
+                            </button>
                         </div>
 
                         <form onSubmit={handleProfileSave} className={styles.profileForm}>
@@ -179,14 +244,15 @@ export default function ProfilePage() {
                                 <div className={styles.inputGroup}>
                                     <label htmlFor="fullName">Full Name</label>
                                     <div className={styles.inputWrapper}>
-                                        <User size={16} className={styles.inputIcon} />
+                                        <UserIcon size={16} className={styles.inputIcon} />
                                         <input
                                             id="fullName"
                                             type="text"
                                             required
+                                            disabled={!isEditing}
                                             value={name}
                                             onChange={(e) => setName(e.target.value)}
-                                            className={styles.textInput}
+                                            className={`${styles.textInput} ${!isEditing ? styles.disabledInput : ''}`}
                                         />
                                     </div>
                                 </div>
@@ -199,9 +265,10 @@ export default function ProfilePage() {
                                             id="phoneNumber"
                                             type="tel"
                                             required
+                                            disabled={!isEditing}
                                             value={phone}
                                             onChange={(e) => setPhone(e.target.value)}
-                                            className={styles.textInput}
+                                            className={`${styles.textInput} ${!isEditing ? styles.disabledInput : ''}`}
                                         />
                                     </div>
                                 </div>
@@ -214,9 +281,10 @@ export default function ProfilePage() {
                                             id="emailAddress"
                                             type="email"
                                             required
+                                            disabled={!isEditing}
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
-                                            className={styles.textInput}
+                                            className={`${styles.textInput} ${!isEditing ? styles.disabledInput : ''}`}
                                         />
                                     </div>
                                 </div>
@@ -228,18 +296,22 @@ export default function ProfilePage() {
                                         <input
                                             id="primaryCity"
                                             type="text"
+                                            disabled={!isEditing}
                                             value={city}
                                             onChange={(e) => setCity(e.target.value)}
-                                            className={styles.textInput}
+                                            className={`${styles.textInput} ${!isEditing ? styles.disabledInput : ''}`}
                                         />
                                     </div>
                                 </div>
                             </div>
 
                             <div className={styles.formActionRow}>
-                                <button type="submit" className={styles.saveBtn}>
-                                    Save Changes
-                                </button>
+                                {isEditing && (
+                                    <button type="submit" className={styles.saveBtn}>
+                                        Save Changes
+                                    </button>
+                                )}
+
                                 {savedSuccess && (
                                     <div className={styles.savedAlert}>
                                         <CheckCircle2 size={16} />
@@ -251,9 +323,7 @@ export default function ProfilePage() {
                     </section>
                 )}
 
-                {/* ========================================================
-            TAB 2: MY BOOKINGS
-            ======================================================== */}
+                {/* TAB 2: MY BOOKINGS */}
                 {activeTab === 'bookings' && (
                     <section className={styles.tabContentCard}>
                         <div className={styles.cardHeader}>
@@ -321,9 +391,7 @@ export default function ProfilePage() {
                     </section>
                 )}
 
-                {/* ========================================================
-            TAB 3: RK CREDITS & WALLET
-            ======================================================== */}
+                {/* TAB 3: RK CREDITS & WALLET */}
                 {activeTab === 'credits' && (
                     <section className={styles.creditsSection}>
                         <div className={styles.walletBalanceCard}>
@@ -376,6 +444,7 @@ export default function ProfilePage() {
                     </section>
                 )}
             </div>
+
 
         </main>
     );

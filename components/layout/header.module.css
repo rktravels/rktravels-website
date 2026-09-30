@@ -26,11 +26,12 @@
     box-sizing: border-box;
 }
 
-/* Brand Cluster (Holds Logo on Desktop, Hamburger + Logo on Mobile/Tablet) */
-.brandCluster {
+/* Left Brand Section: Hamburger (Left) + Logo */
+.leftBrandSection {
     display: flex;
     align-items: center;
-    gap: 0;
+    gap: 12px;
+    flex-shrink: 0;
 }
 
 .logoLink {
@@ -98,31 +99,149 @@
     flex-shrink: 0;
 }
 
+/* ==========================================================================
+   CURRENCY SELECTOR PILL & DROPDOWN
+   ========================================================================== */
+.currencyWrapper {
+    position: relative;
+}
+
 .currencyPill {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #1e293b;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #0e1e2d;
     padding: 8px 14px;
     background-color: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
-    transition: border-color 0.2s ease, background-color 0.2s ease;
+    transition: all 0.2s ease;
     user-select: none;
+    font-family: inherit;
 }
 
-.currencyPill:hover {
-    border-color: #cbd5e1;
-    background-color: #f8fafc;
+.currencyPill:hover,
+.activeCurrencyPill {
+    border-color: #f26522;
+    background-color: #fff9f3;
+    box-shadow: 0 3px 10px rgba(242, 101, 34, 0.08);
 }
 
 .currencyChevron {
     color: #64748b;
+    transition: transform 0.2s ease;
 }
 
+.chevronRotated {
+    transform: rotate(180deg);
+}
+
+.currencyDropdownMenu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 220px;
+    background-color: #ffffff;
+    border: 1px solid #fee3cd;
+    border-radius: 14px;
+    box-shadow: 0 16px 36px rgba(14, 30, 45, 0.12);
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 130;
+    animation: dropFadeIn 0.2s ease forwards;
+}
+
+@keyframes dropFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.currencyDropdownHeader {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 6px 10px 4px 10px;
+}
+
+.currencyOption {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+    transition: background-color 0.15s ease;
+}
+
+.currencyOption:hover {
+    background-color: #fff4ea;
+}
+
+.selectedCurrencyOption {
+    background-color: #fff4ea;
+}
+
+.currencySym {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background-color: #f1f5f9;
+    color: #0e1e2d;
+    font-weight: 700;
+    font-size: 0.84rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.selectedCurrencyOption .currencySym {
+    background-color: #f26522;
+    color: #ffffff;
+}
+
+.currencyInfo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.currencyCode {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #0e1e2d;
+}
+
+.currencyLabel {
+    font-size: 0.72rem;
+    color: #64748b;
+}
+
+.checkIcon {
+    color: #f26522;
+    flex-shrink: 0;
+}
+
+/* Auth CTA Button */
 .authBtn {
     background-color: #f26522;
     color: #ffffff;
@@ -144,7 +263,7 @@
     box-shadow: 0 6px 18px rgba(242, 101, 34, 0.35);
 }
 
-/* User Profile Pill & Dropdown (Logged-In State) */
+/* User Profile Pill & Dropdown */
 .profileWrapper {
     position: relative;
 }
@@ -197,11 +316,6 @@
     transition: transform 0.2s ease;
 }
 
-.chevronRotated {
-    transform: rotate(180deg);
-}
-
-/* Profile Dropdown Menu */
 .profileDropdownMenu {
     position: absolute;
     top: calc(100% + 10px);
@@ -216,18 +330,6 @@
     flex-direction: column;
     z-index: 120;
     animation: dropFadeIn 0.2s ease forwards;
-}
-
-@keyframes dropFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-8px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .dropdownHeader {
@@ -292,7 +394,7 @@
     border: none;
     color: #0e1e2d;
     cursor: pointer;
-    padding: 0;
+    padding: 6px;
     align-items: center;
     justify-content: center;
     transition: color 0.2s ease;
@@ -337,6 +439,46 @@
 .mobileUserData span {
     font-size: 0.74rem;
     color: #64748b;
+}
+
+/* Mobile Currency Selector Row */
+.mobileCurrencySelector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0 14px 0;
+    border-bottom: 1px solid #f1f5f9;
+    margin-bottom: 1rem;
+}
+
+.mobileCurrencyLabel {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #64748b;
+}
+
+.mobileCurrencyGrid {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.mobileCurrBtn {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 5px 8px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #334155;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.activeMobileCurrBtn {
+    background-color: #f26522;
+    border-color: #f26522;
+    color: #ffffff;
 }
 
 .mobileNavLinks {
@@ -403,11 +545,7 @@
 
     .currencyPill {
         display: none;
-    }
-
-    .brandCluster {
-        gap: 8px;
-        /* Places logo closely next to the hamburger icon */
+        /* Accessible in the mobile drawer */
     }
 
     .menuToggleBtn {
@@ -438,23 +576,19 @@
 
     .headerContainer {
         padding: 0 0.85rem;
+        gap: 0.5rem;
     }
 
-    .brandCluster {
-        gap: 6px;
-        /* Tight, proportional spacing between hamburger and logo */
-    }
-
-    .menuToggleBtn {
-        padding: 2px;
-    }
-
-    .rightActions {
+    .leftBrandSection {
         gap: 6px;
     }
 
     .logoImageWrap {
-        height: 50px;
+        height: 48px;
+    }
+
+    .rightActions {
+        gap: 6px;
     }
 
     .authBtn {
@@ -479,6 +613,10 @@
         max-width: 80px;
     }
 
+    .menuToggleBtn {
+        padding: 4px;
+    }
+
     .mobileDrawer {
         top: 78px;
     }
@@ -489,13 +627,8 @@
         height: 72px;
     }
 
-    .brandCluster {
-        gap: 4px;
-        /* Ultra-compact spacing for smaller mobile screens */
-    }
-
     .logoImageWrap {
-        height: 42px;
+        height: 40px;
     }
 
     .profileName {
